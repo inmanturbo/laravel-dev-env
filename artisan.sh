@@ -23,14 +23,12 @@ if [ -z "$skeleton_path" ]; then
 fi
 
 # thorw an error if the skeleton path does not exist
-
 if [ ! -d "$skeleton_path" ]; then
     echo "The skeleton path does not exist"
     exit 1
 fi
 
 # throw an error if the skeleton path is not a git repository
-
 if [ ! -d "$skeleton_path/.git" ]; then
     echo "The skeleton path is not a git repository"
     exit 1
@@ -43,14 +41,12 @@ if [ -z "$src_path" ]; then
 fi
 
 # throw an error if the src_path does not exist
-
 if [ ! -d "$src_path" ]; then
     echo "The src_path does not exist"
     exit 1
 fi
 
 git -C $skeleton_path reset --hard
-
 git -C $skeleton_path clean -fd
 
 php $skeleton_path/artisan "${@}"
@@ -66,6 +62,6 @@ do
     echo "File: $skeleton_path/$file"
     echo "Path: $filepath"
     echo "Namespace: $package_namespace"
-    mkdir -p "$PWD/$filepath"
-    cp "$skeleton_path/$file" "$PWD/$filepath"
+    mkdir -p $filepath
+    cp "$skeleton_path/$file" $filepath
 done
