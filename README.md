@@ -22,12 +22,12 @@ git commit -m "skeleton"
 ```
 
 
-create a .env file in your project root and set your package_namespace and skeleton_path e.g:
+create a .env file in your project root and set your `package_namespace`, `skeleton_path` and `package_src_path` e.g:
 
 ```env
 skeleton_path=".laravel-skeleton"
 package_namespace='MyOrganization\\MyPackage'
-src_path="src"
+package_src_path="src"
 ```
 
 use artisan to stub out your package classes like:
