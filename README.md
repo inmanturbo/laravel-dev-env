@@ -3,7 +3,7 @@ simple way to run `artisan make:` commands during package development
 
 ## Usage
 
-Copy this script into your project root during package development and (optionally) add it to your .gitignore
+Copy this script into your project root during package development and (optionally) add it to your .gitignore.   
 Create a laravel project in your project root and .gitignore it as well, and initialize a git repository inside the laravel project, then add and commit the skeleton
 >NOTE:   
 >This script uses git to list the file changes made by artisan commands.   
