@@ -29,7 +29,7 @@ package_namespace='MyOrganization\\MyPackage'
 package_src_path="src"
 ```
 
-use artisan to stub out your package classes like:
+- use artisan to stub out your package classes like:
 
 ```bash
 bash artisan.sh make:model MyModel -mfc
