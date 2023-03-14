@@ -59,9 +59,9 @@ do
     filepath=$(sed "s/app/$package_src_path/g" <<< "$filepath")
 
     sed -i "s/namespace App/namespace $package_namespace/g" "$skeleton_path/$file"
+    sed -i "s/namespace Database/namespace $package_namespace\\\Database/g" "$skeleton_path/$file"
     echo "File: $skeleton_path/$file"
     echo "Path: $filepath"
-    echo "Namespace: $package_namespace"
     mkdir -p $filepath
     cp "$skeleton_path/$file" $filepath
 done
