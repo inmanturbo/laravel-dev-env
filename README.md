@@ -28,6 +28,8 @@ skeleton_path=".laravel-skeleton"
 package_namespace='MyOrganization\\MyPackage'
 package_src_path="src"
 ```
+>NOTE:   
+>Use triple backslash when double-quoting namespaces, and double backslashes when single-quoting.
 
 - use artisan to stub out your package classes like:
 
@@ -53,6 +55,3 @@ Path: database/factories
 File: .laravel-skeleton/database/migrations/2023_03_14_210942_create_my_models_table.php
 Path: database/migrations
 ```
-
->NOTE:   
->Use triple backslash when double quoting namespaces, and double backslashes when single quoting
