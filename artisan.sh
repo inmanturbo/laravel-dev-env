@@ -2,7 +2,7 @@
 
 # throw an error if the .env file is not found
 if [ ! -f ./.env ]; then
-    echo "Please create a .env file in the root of the project and set the \$package_namespace and \$skeleton_path"
+    echo "Please create a .env file in the root of the project and set the `package_namespace`, `skeleton_path` and `package_src_path`"
     exit 1
 fi
 
@@ -34,15 +34,15 @@ if [ ! -d "$skeleton_path/.git" ]; then
     exit 1
 fi
 
-# throw an error if the src_path is not set
-if [ -z "$src_path" ]; then
-    echo "Please set the src_path in the .env file"
+# throw an error if the package_src_path is not set
+if [ -z "$package_src_path" ]; then
+    echo "Please set the package_src_path in the .env file"
     exit 1
 fi
 
-# throw an error if the src_path does not exist
-if [ ! -d "$src_path" ]; then
-    echo "The src_path does not exist"
+# throw an error if the package_src_path does not exist
+if [ ! -d "$package_src_path" ]; then
+    echo "The package_src_path does not exist"
     exit 1
 fi
 
@@ -56,7 +56,7 @@ git -C $skeleton_path/ add .
 for file in $(git -C $skeleton_path --no-pager diff --name-only --cached)
 do
     filepath=$(dirname "$file")
-    filepath=$(sed "s/app/$src_path/g" <<< "$filepath")
+    filepath=$(sed "s/app/$package_src_path/g" <<< "$filepath")
 
     sed -i "s/namespace App/namespace $package_namespace/g" "$skeleton_path/$file"
     echo "File: $skeleton_path/$file"
