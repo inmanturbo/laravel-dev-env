@@ -23,6 +23,33 @@ if [ -z "$skeleton_path" ]; then
     exit 1
 fi
 
+# thorw an error if the skeleton path does not exist
+
+if [ ! -d "$skeleton_path" ]; then
+    echo "The skeleton path does not exist"
+    exit 1
+fi
+
+# throw an error if the skeleton path is not a git repository
+
+if [ ! -d "$skeleton_path/.git" ]; then
+    echo "The skeleton path is not a git repository"
+    exit 1
+fi
+
+# throw an error if the src_path is not set
+if [ -z "$src_path" ]; then
+    echo "Please set the src_path in the .env file"
+    exit 1
+fi
+
+# throw an error if the src_path does not exist
+
+if [ ! -d "$src_path" ]; then
+    echo "The src_path does not exist"
+    exit 1
+fi
+
 git -C $skeleton_path reset --hard
 
 git -C $skeleton_path clean -fd
@@ -33,11 +60,13 @@ git -C $skeleton_path/ add .
 
 for file in $(git -C $skeleton_path --no-pager diff --name-only --cached)
 do
-    echo "File: $skeleton_path/$file"
     filepath=$(dirname "$file")
-    filepath=$(sed "s/app/turbo/g" <<< "$filepath")
+    filepath=$(sed "s/app/$src_path/g" <<< "$filepath")
+
+    sed -i "s/namespace App/namespace $package_namespace/g" "$skeleton_path/$file"
+    echo "File: $skeleton_path/$file"
     echo "Path: $filepath"
-    sed -i "s/namespace App/$package_namespace/g" "$skeleton_path/$file"
+    echo "Namespace: $package_namespace"
     mkdir -p "$PWD/$filepath"
     cp "$skeleton_path/$file" "$PWD/$filepath"
 done
