@@ -18,7 +18,8 @@ git commit -m "skeleton"
 >NOTE:   
 >This script uses git to list the file changes made by artisan commands.   
 >Needless to say git is a requirement, as is a repository in the skeleton (with an initial commit).   
->You can also clone and install an existing laravel application of your own to use as your skeleton (instead of running `laravel new`)
+>You can also clone and install an existing laravel application of your own to use as your skeleton    
+>(instead of running `laravel new`)
 
 - create a .env file in your project root and set your `package_namespace`, `skeleton_path` and `package_src_path` e.g:
 
