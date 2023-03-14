@@ -46,22 +46,13 @@ bash artisan.sh make:model MyModel -mfc
 
 File: .laravel-skeleton/app/Http/Controllers/MyModelController.php
 Path: src/Http/Controllers
-Namespace: MyOrganization\\MyPackage
 File: .laravel-skeleton/app/Models/MyModel.php
 Path: src/Models
-Namespace: MyOrganization\\MyPackage
 File: .laravel-skeleton/database/factories/MyModelFactory.php
 Path: database/factories
-Namespace: MyOrganization\\MyPackage
 File: .laravel-skeleton/database/migrations/2023_03_14_210942_create_my_models_table.php
 Path: database/migrations
-Namespace: MyOrganization\\MyPackage
 ```
 
-and 
-
-```bash
-bash artisan.sh make:migration create_awesome_table
-```
 >NOTE:   
->Use triple backslash when double quoting namespaces, and double backslashes when single quoting'
+>Use triple backslash when double quoting namespaces, and double backslashes when single quoting
