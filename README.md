@@ -23,6 +23,7 @@ git commit -m "skeleton"
 - create a .env file in your project root and set your `package_namespace`, `skeleton_path` and `package_src_path` e.g:
 
 ```env
+# in .env file
 skeleton_path=".laravel-skeleton"
 package_namespace='MyOrganization\\MyPackage'
 package_src_path="src"
