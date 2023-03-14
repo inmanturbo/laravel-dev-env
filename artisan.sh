@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # throw an error if the .env file is not found
-
 if [ ! -f ./.env ]; then
     echo "Please create a .env file in the root of the project and set the \$package_namespace and \$skeleton_path"
     exit 1
