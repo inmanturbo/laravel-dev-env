@@ -62,6 +62,7 @@ do
     sed -i "s/namespace Database/namespace $package_namespace\\\Database/g" "$skeleton_path/$file"
     sed -i "s/namespace Tests/namespace $package_namespace\\\Tests/g" "$skeleton_path/$file"
     sed -i "s/use Tests/use $package_namespace\\\Tests/g" "$skeleton_path/$file"
+    sed -i "s/use App\\\Models/use $package_namespace\\\Models/g" "$skeleton_path/$file"
     echo "File: $skeleton_path/$file"
     echo "Path: $filepath"
     mkdir -p $filepath
